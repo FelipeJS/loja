@@ -3,20 +3,22 @@ package br.com.plusbella.loja.produto;
 import java.math.BigDecimal;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 
 import br.com.plusbella.loja.util.BaseEntity;
 
-public abstract class Produto extends BaseEntity {
+@Entity
+public class Produto extends BaseEntity {
 
 	private static final long serialVersionUID = -8864551329922643589L;
 
 	@Column(name = "nome", nullable = false, length = 200)
 	private String nome;
 
-	@Column(name = "genero", nullable = false, length = 20)
+	@Column(name = "genero", nullable = true, length = 20)
 	private String genero;
 
-	@Column(name = "tamanho", nullable = false, length = 10)
+	@Column(name = "tamanho", nullable = true, length = 10)
 	private String tamanho;
 
 	@Column(name = "custo", nullable = false, precision = 8, scale = 2)

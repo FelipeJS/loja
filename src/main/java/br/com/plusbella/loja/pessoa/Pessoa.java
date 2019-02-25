@@ -3,21 +3,34 @@ package br.com.plusbella.loja.pessoa;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
 
 import br.com.plusbella.loja.util.BaseEntity;
 
+@MappedSuperclass
 public abstract class Pessoa extends BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = 2566396452321613239L;
 
+	@Column(name = "cpf", nullable = false, length = 11)
+	private String cpf;
+
 	@Column(name = "nome", nullable = false, length = 500)
 	private String nome;
 
-	@Column(name = "telefone", nullable = false, length = 12)
+	@Column(name = "telefone", nullable = true, length = 12)
 	private String telefone;
 
-	@Column(name = "email", nullable = false, length = 500)
+	@Column(name = "email", nullable = true, length = 500)
 	private String email;
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 
 	public String getNome() {
 		return nome;
